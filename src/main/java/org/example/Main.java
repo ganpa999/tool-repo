@@ -32,6 +32,7 @@ public class Main {
             comparer.compareAndGenerate();
 
             System.out.println("Data successfully written to " + outputPdfPath);
+            System.out.println("data successfully written for both cases.");
         } catch (Exception e) {
             e.printStackTrace();
         }
