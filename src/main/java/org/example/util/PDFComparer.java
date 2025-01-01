@@ -8,8 +8,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 
 public class PDFComparer {
+
+    private static final Logger LOGGER = Logger.getLogger(PDFComparer.class.getName());
     private final String file1Path;
     private final String file2Path;
     private final String outputFilePath;
@@ -21,6 +24,8 @@ public class PDFComparer {
     }
 
     public void compareAndGenerate() throws IOException {
+
+        LOGGER.info("PDFClass is performing a task");
         Map<String, String> data1 = extractData(file1Path);
         Map<String, String> data2 = extractData(file2Path);
 

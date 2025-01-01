@@ -8,10 +8,23 @@ import org.example.util.PDFExtractor;
 
 import java.io.*;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 
 
 public class Main {
+
+    private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
     public static void main(String[] args) {
+
+        try {
+            LogManager.getLogManager().readConfiguration(Main.class.getResourceAsStream("/logging.properties"));
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, "Error reading logging configuration", e);
+        }
+
+        LOGGER.info("MainClass started");
         // Paths for PDF files and output Excel
         String pdf1Path = "C:\\Ganesh\\backend-java\\Tool1\\src\\main\\resources\\sample1.pdf";
         String pdf2Path = "C:\\Ganesh\\backend-java\\Tool1\\src\\main\\resources\\sample2.pdf";
@@ -36,5 +49,7 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        LOGGER.info("MainClass completed");
     }
 }

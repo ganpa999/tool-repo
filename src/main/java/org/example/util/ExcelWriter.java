@@ -4,9 +4,13 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.FileOutputStream;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class ExcelWriter {
+
+    private static final Logger LOGGER = Logger.getLogger(ExcelWriter.class.getName());
     public static void writeDataToExcel(List<String> column1Data, List<String> column2Data, String outputPath) throws Exception {
+        LOGGER.info("ExcelClass is performing a task");
         Workbook workbook = new XSSFWorkbook();
         Sheet sheet = workbook.createSheet("Data");
 

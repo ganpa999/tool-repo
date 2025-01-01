@@ -6,9 +6,12 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class PDFExtractor {
+    private static final Logger LOGGER = Logger.getLogger(PDFExtractor.class.getName());
     public static List<String> extractTextFromPDF(String pdfPath) throws Exception {
+        LOGGER.info("PDFClass is extracting data");
         PDDocument document = PDDocument.load(new File(pdfPath));
         PDFTextStripper pdfStripper = new PDFTextStripper();
         String text = pdfStripper.getText(document);
