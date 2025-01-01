@@ -3,6 +3,7 @@ package org.example;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.example.util.ExcelWriter;
+import org.example.util.PDFComparator;
 import org.example.util.PDFComparer;
 import org.example.util.PDFExtractor;
 
@@ -30,6 +31,9 @@ public class Main {
         String pdf2Path = "C:\\Ganesh\\backend-java\\Tool1\\src\\main\\resources\\sample2.pdf";
         String outputExcelPath = "C:\\Ganesh\\backend-java\\Tool1\\src\\main\\resources\\outputExcel.xlsx";
         String outputPdfPath = "C:\\Ganesh\\backend-java\\Tool1\\src\\main\\resources\\outputPdf.pdf";
+        String pdf3Path = "C:\\Ganesh\\backend-java\\Tool1\\src\\main\\resources\\Sample11.pdf";
+        String pdf4Path= "C:\\Ganesh\\backend-java\\Tool1\\src\\main\\resources\\sample12.pdf";
+        String outputPNG= "C:\\Ganesh\\backend-java\\Tool1\\src\\main\\resources\\output.png";
 
         try {
             // Extract data from PDFs
@@ -49,6 +53,9 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        PDFComparator comparator = new PDFComparator();
+        comparator.comparePDFs(pdf3Path, pdf4Path, outputPNG);
 
         LOGGER.info("MainClass completed");
     }
